@@ -2,7 +2,7 @@
 resharper
 ========
 
-Formula for latest ReSharper IDE from Jetbrains. 
+Formula for latest ReSharper IDE from Jetbrains on Windows.
 
 .. note::
 
@@ -18,21 +18,17 @@ Available states
 ``resharper``
 ------------
 
-Downloads the archive from Jetbrains website, unpacks locally and installs the IDE on the Operating System.  Places a environment profile in /etc/profile.d - this way the PATH is set correctly for all system users.
+Downloads the archive from Jetbrains website, unpacks locally and installs the IDE on the Operating System.
 
 .. note::
 
 This formula automatically installs latest Jetbrains release. This behaviour may be overridden in pillars.
 
-``resharper.alternatives``
-------------
-Full support for debian alternatives in supported Linux distributions (i.e. not Archlinux, Windows, MacOS).
-
 ``resharper.developer``
 ------------
-Optionally get preferences file from url/share and place in 'user' (pillar) home directory for import.  Creates a Desktop shortcut on Linux and MacOS.
+Create Desktop shortcuts. Optionally get preferences file from url/share and save into 'user' (pillar) home directory.
 
 
 Please see the pillar.example for configuration.
 
-Tested on Linux (Ubuntu, Fedora, Arch, and Suse), MacOS. Not verified on Windows OS.
+Not verified on Windows

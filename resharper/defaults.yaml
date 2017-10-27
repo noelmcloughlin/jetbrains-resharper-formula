@@ -1,39 +1,32 @@
 #Default Look Dictionary
 
 resharper:
-  prefix: /usr/lib/jetbrains
-  tmpdir: /tmp/jetbrainstmp
-  symlink: /usr/bin/resharper
-  symhome: /opt/jetbrains/resharper
-  command: /bin/resharper.sh
-  homes: /home
-  osflavour: linux
+  prefix: C:\\jetbrains
+  tmpdir: C:\\temp\\jetbrainstmp\\
+  command: \\resharper.exe
+  homes: C:\\Users
+  osflavour: windows
 
   jetbrains:
+    home: C:\\jetbrains\\
+    uri: https://data.services.jetbrains.com/products/releases?latest=true&code=
+    #See https://www.jetbrains.com/help/resharper/Introduction__Index.html
     #Default is ReSharper
     product: RS 
     edition:
-    uri: https://data.services.jetbrains.com/products/releases?latest=true&code=
 
   dl:
-    archive_type: tar
     opts: -s -L
     interval: 60
     retries: 1
     source_url:
     src_hashfile:
     src_hashsum:
-    archive_name:
-    unpack_opts:
-
-  alt:
-    priority: 170
-    realhome: 
-    realcmd:
 
   prefs:
     user: undefined_user
-    importurl:
-    importdir:
-    myfile: resharper-prefs.xml
+    #See: https://www.jetbrains.com/help/resharper/Sharing_Configuration_Options.html#upgrading
+    jarurl:
+    jardir:
+    jarfile: resharper-settings.jar
 
