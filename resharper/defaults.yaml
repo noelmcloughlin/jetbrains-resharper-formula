@@ -11,7 +11,7 @@ resharper:
     home: C:\\jetbrains\\
     uri: https://data.services.jetbrains.com/products/releases?latest=true&code=
     #See https://www.jetbrains.com/help/resharper/Introduction__Index.html
-    #Default is ReSharper
+    #Default is resharper
     product: RS 
     edition:
 
@@ -24,7 +24,7 @@ resharper:
     src_hashsum:
 
   prefs:
-    user: undefined_user
+    user:
     #See: https://www.jetbrains.com/help/resharper/Sharing_Configuration_Options.html#upgrading
     jarurl:
     jardir:

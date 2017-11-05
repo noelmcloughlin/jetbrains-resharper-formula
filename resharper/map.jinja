@@ -7,7 +7,7 @@
 {% set ide = salt['pillar.get']( 'resharper', default=defs.resharper, merge=True) %}
 
 # Set Jetbrains IDE latest release details
-{% if grains.os == 'Windows' or ide.jetbrains.edition in ('None') %}
+{% if grains.os == 'Windows' or ide.jetbrains.edition in ('None', '',) %}
    {%- set pcode = ide.jetbrains.product %}
 {%- set jdata = salt['cmd.run']('curl {0} {1}{2}'.format(ide.dl.opts, ide.jetbrains.uri, pcode))|load_yaml %}
 

@@ -28,7 +28,7 @@ resharper-download-archive:
 {%- if resharper.dl.src_hashsum %}
    # Check local archive using hashstring for older Salt / non-Unix
    # (see https://github.com/saltstack/salt/pull/41914).
-  {%- if grains['saltversioninfo'] <= [2016, 11, 6] or grains.os in ('Windows') %}
+  {%- if grains['saltversioninfo'] <= [2016, 11, 6] or grains.os in ('Windows',) %}
 resharper-check-archive-hash:
    module.run:
      - name: file.check_hash

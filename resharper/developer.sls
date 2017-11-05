@@ -1,6 +1,6 @@
 {% from "resharper/map.jinja" jar resharper with context %}
 
-{% if resharper.prefs.user not in (None, 'undefined_user') %}
+{% if resharper.prefs.user not in (None, 'undefined_user', 'undefined', '',) %}
 
     ## todo: Check desktop shortcut exists
 
