@@ -13,6 +13,7 @@ resharper-install-dir:
       - '{{ resharper.jetbrains.realhome }}'
       - '{{ resharper.tmpdir }}'
     - makedirs: True
+    - clean: True
     - require_in:
       - resharper-download-archive
 
