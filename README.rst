@@ -2,7 +2,7 @@
 jetbrains resharper
 ========
 
-Formula for latest ReSharper IDE from Jetbrains on Windows.
+Formula for latest ReSharper IDE from Jetbrains on Windows OS.
 
 .. note::
 
