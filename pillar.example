@@ -4,6 +4,7 @@ resharper:
     interval: 30
   prefs:
     user: undefined_user
+    #group:
     #See: https://www.jetbrains.com/help/resharper/Sharing_Configuration_Options.html#upgrading
     jarurl:
     jardir:
