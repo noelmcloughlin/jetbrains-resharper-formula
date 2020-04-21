@@ -7,4 +7,4 @@ resharper:
   pkg:
     use_upstream_archive: true
   identity:
-    user: undefined_user
+    user: root

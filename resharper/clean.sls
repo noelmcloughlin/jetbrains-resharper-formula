@@ -7,8 +7,8 @@
 {%- from tplroot ~ "/map.jinja" import resharper with context %}
 
 include:
-  - .archive
-  - .config
+  - .archive.clean
+  - .config.clean
 
     {%- else %}
 
