@@ -1,31 +1,30 @@
 # -*- coding: utf-8 -*-
 # vim: ft=jinja
 
-# Start with defaults, merge osmapping, then pillars.
+{%- set tplroot = tpldir.split('/')[0] %}
+{%- import_yaml tplroot ~ "/defaults.yaml" as default_settings %}
 
-{% import_yaml 'resharper/defaults.yaml' as defs %}
-{% set ide = salt['pillar.get']( 'resharper', default=defs.resharper, merge=True) %}
+{%- set _config = salt['config.get'](tplroot, default={}) %}
+{%- set defaults = salt['grains.filter_by'](
+      default_settings,
+      default=tplroot,
+        merge=salt['grains.filter_by']( _config, default='lookup'
+      )
+    )
+%}
+{%- set resharper = salt['grains.filter_by']( {'defaults': defaults}, default='defaults', merge=_config) %}
 
-# Get dynamic release metadata
-{%- set pcode = ide.jetbrains.product %}
-{%- set pcode = pcode ~ ide.jetbrains.edition if ide.jetbrains.edition else pcode %}
-{%- set jdata = salt['cmd.run']('curl {0} {1}{2}'.format(ide.dl.opts, ide.jetbrains.uri, pcode))|load_yaml %}
+{%- set pcode = resharper.product ~ resharper.edition if resharper.edition else resharper.product %}
+{%- set jdata = salt['cmd.run']('curl -s -L {0}{1}'.format(resharper.pkg.archive.uri, pcode))|load_yaml %}
+{%- do resharper.update({ 'version': jdata[ pcode ][0]['version'] }) %}
 
-# Extract download details
-{% set _home = '{0}\\resharper-{1}'.format( ide.prefix, jdata[ pcode ][0]['version']) %}
-{% if ide.jetbrains.edition %} 
-  {% set _home = '{0}\\resharper-{1}-{2}'.format( ide.prefix, ide.jetbrains.edition, jdata[ pcode ][0]['version']) %}
-{% endif %}
-{%- set src_hashurl = jdata[ pcode ][0]['downloads'][ ide.osflavour ]['checksumLink'] %}
-{%- set src_hashsum  = salt['cmd.run']('curl -s {0}'.format( src_hashurl )).split(' ')[0] %}
+{%- set dirname = 'resharper-%s-%s'|format( resharper.edition if resharper.edition else '', resharper.version) %}
+{%- set url = jdata[ pcode ][0]['downloads'][ resharper.flavour ]['link'] %}
+{%- set hash  = salt['cmd.run']('curl -L -s {0}'.format( jdata[ pcode ][0]['downloads'][ resharper.flavour ]['checksumLink'])).split(' ')[0] %}  # noqa 204
 
-# Update dynamic parameters
-{% do ide.jetbrains.update({ 'realhome': _home, 'realcmd': _home ~ ide.command },) %}
-{% do ide.dl.update({
-       'source_url'  : jdata[ pcode ][0]['downloads'][ ide.osflavour ]['link'],
-       'archive_name': jdata[ pcode ][0]['downloads'][ ide.osflavour ]['link'].split('/') | last ,
-       'src_hashurl' : src_hashurl,
-       'src_hashsum' : src_hashsum,
-) %}
-{% set resharper = ide %}
-
+{%- if resharper.pkg.use_upstream_archive %}
+       {%- do resharper.pkg.archive.update({'name': resharper.dir.archive ~ '\\' ~ dirname,
+                                           'path': resharper.dir.archive ~ '\\' ~ dirname,
+                                           'source': url,
+                                           'source_hash': hash }) %}
+{%- endif %}
