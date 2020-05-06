@@ -9,7 +9,7 @@ resharper:
   version: latest
 
   command: \\resharper.exe
-  config_file: None
+  config_file: null
   config: {}
   environ_file: /etc/default/resharper.sh
   environ: []
@@ -23,9 +23,9 @@ resharper:
       - gzip
     suffix: exe
     archive:
-      path: None
+      path: null
       uri: 'https://data.services.jetbrains.com/products/releases?latest=true&code='
-      source_hash: None
+      source_hash: null
 
   dir:
     archive: C:\\Program files\\Jetbrains\\
