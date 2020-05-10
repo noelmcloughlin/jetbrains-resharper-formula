@@ -1,7 +1,7 @@
 .. _readme:
 
 resharper-formula
-============
+=================
 
 |img_travis| |img_sr|
 
