@@ -12,7 +12,7 @@ include:
 
     {%- else %}
 
-resharper-not-available-to-install:
+resharper-not-available-to-clean:
   test.show_notification:
     - text: |
         The resharper package is unavailable for {{ salt['grains.get']('finger', grains.os_family) }}
