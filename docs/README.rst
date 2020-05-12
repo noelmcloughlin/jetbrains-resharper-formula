@@ -17,6 +17,7 @@ resharper-formula
 Formula to install Resharper on Windows
 
 .. contents:: **Table of Contents**
+   :depth: 1
 
 General notes
 -------------
