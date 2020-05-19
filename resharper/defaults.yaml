@@ -1,32 +1,45 @@
-#Default Look Dictionary
-
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
 resharper:
-  prefix: C:\\jetbrains
-  tmpdir: C:\\temp\\jetbrainstmp\\
+  product: SS
+  edition: ''
+  flavour: windows
+  release: latest
+  version: latest
+
   command: \\resharper.exe
-  homes: C:\\Users
-  osflavour: windows
+  config_file: null
+  config: {}
+  environ_file: /etc/default/resharper.sh
+  environ: []
 
-  jetbrains:
-    home: C:\\jetbrains\\
-    uri: https://data.services.jetbrains.com/products/releases?latest=true&code=
-    #See https://www.jetbrains.com/help/resharper/Introduction__Index.html
-    #Default is resharper
-    product: RS 
-    edition:
+  pkg:
+    name: Resharper
+    use_upstream_archive: true
+    deps:
+      - curl
+      - tar
+      - gzip
+    suffix: exe
+    archive:
+      path: null
+      uri: 'https://data.services.jetbrains.com/products/releases?latest=true&code='
+      source_hash: null
 
-  dl:
-    opts: -s -L
-    interval: 60
-    retries: 1
-    source_url:
-    src_hashfile:
-    src_hashsum:
+  dir:
+    archive: C:\\Program files\\Jetbrains\\
+    tmp: C:\\temp\\jetbrainstmp\\
+    homes: C:\\Users
 
-  prefs:
-    user:
-    #See: https://www.jetbrains.com/help/resharper/Sharing_Configuration_Options.html#upgrading
-    jarurl:
-    jardir:
-    jarfile: resharper-settings.jar
+  identity:
+    rootuser: root
+    rootgroup: root
+    user: undefined_user
 
+  retry_option:
+    # https://docs.saltstack.com/en/latest/ref/states/requisites.html#retrying-states
+    attempts: 2
+    until: true
+    interval: 10
+    splay: 10
