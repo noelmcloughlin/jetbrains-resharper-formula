@@ -2,7 +2,7 @@
 # vim: ft=yaml
 ---
 resharper:
-  product: SS
+  product: RS
   edition: ''
   flavour: windows
   release: latest

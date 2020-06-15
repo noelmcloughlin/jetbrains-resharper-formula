@@ -55,7 +55,7 @@ Available states
    :local:
 
 ``resharper``
-^^^^^^^^^^
+^^^^^^^^^^^^^
 
 *Meta-state (This is a state that includes other states)*.
 
@@ -64,18 +64,18 @@ manages Resharper configuration file and then
 configures the development environment.
 
 ``resharper.archive``
-^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 
 This state will install Resharper from archive only.
 
 ``resharper.config``
-^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
 This state will configure npmrc and/or environment and has a dependency on ``resharper.install``
 via include list.
 
 ``resharper.clean``
-^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 
 *Meta-state (This is a state that includes other states)*.
 
@@ -84,13 +84,13 @@ removes the configuration file and
 then uninstalls the package.
 
 ``resharper.config.clean``
-^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This state will remove the configuration of Resharper and has a
 dependency on ``resharper.package.clean`` via include list.
 
 ``resharper.archive.clean``
-^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This state will remove Resharper package and has a dependency on
 ``resharper.config.clean`` via include list.

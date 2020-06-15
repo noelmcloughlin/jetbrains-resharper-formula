@@ -9,4 +9,4 @@ resharper-package-archive-clean-file-absent:
   file.absent:
     - names:
       - {{ resharper.pkg.archive.path }}
-      - /usr/local/jetbrains/resharper-{{ resharper.edition }}-*
+      - /usr/local/jetbrains/resharper-*
