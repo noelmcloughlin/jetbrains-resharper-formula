@@ -12,19 +12,22 @@
       )
     )
 %}
-{%- set resharper = salt['grains.filter_by']( {'defaults': defaults}, default='defaults', merge=_config) %}
+{%- set r = salt['grains.filter_by']( {'defaults': defaults}, default='defaults', merge=_config) %}
 
-{%- set pcode = resharper.product ~ resharper.edition if resharper.edition else resharper.product %}
-{%- set jdata = salt['cmd.run']('curl -s -L {0}{1}'.format(resharper.pkg.archive.uri, pcode))|load_yaml %}
-{%- do resharper.update({ 'version': jdata[ pcode ][0]['version'] }) %}
+{%- set edition = '' if 'edition' not in r else r.edition %}
+{%- set pcode = r.product ~ edition %}
+{%- set jdata = salt['cmd.run']('curl -s -L {0}{1}'.format(r.pkg.archive.uri, pcode))|load_yaml %}
+{%- do r.update({ 'version': jdata[ pcode ][0]['version'] }) %}
 
-{%- set dirname = 'resharper-%s-%s'|format( resharper.edition if resharper.edition else '', resharper.version) %}
-{%- set url = jdata[ pcode ][0]['downloads'][ resharper.flavour ]['link'] %}
-{%- set hash  = salt['cmd.run']('curl -L -s {0}'.format( jdata[ pcode ][0]['downloads'][ resharper.flavour ]['checksumLink'])).split(' ')[0] %}  # noqa 204
+{%- set dirname = 'r-%s-%s'|format( edition, r.version) %}
+{%- set url = jdata[ pcode ][0]['downloads'][ r.flavour ]['link'] %}
+{%- set hash  = salt['cmd.run']('curl -L -s {0}'.format( jdata[ pcode ][0]['downloads'][ r.flavour ]['checksumLink'])).split(' ')[0] %}  # noqa 204
 
-{%- if resharper.pkg.use_upstream_archive %}
-       {%- do resharper.pkg.archive.update({'name': resharper.dir.archive ~ '\\' ~ dirname,
-                                           'path': resharper.dir.archive ~ '\\' ~ dirname,
-                                           'source': url,
-                                           'source_hash': hash }) %}
+{%- if r.pkg.use_upstream_archive %}
+    {%- do r.pkg.archive.update({'name': r.dir.archive ~ '\\' ~ dirname,
+                                 'path': r.dir.archive ~ '\\' ~ dirname,
+                                 'source': url,
+                                 'source_hash': hash }) %}
 {%- endif %}
+
+{%- set resharper = r %}
