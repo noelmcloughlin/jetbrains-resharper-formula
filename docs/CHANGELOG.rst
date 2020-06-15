@@ -2,6 +2,22 @@
 Changelog
 =========
 
+`1.0.1 <https://github.com/saltstack-formulas/jetbrains-resharper-formula/compare/v1.0.0...v1.0.1>`_ (2020-06-15)
+---------------------------------------------------------------------------------------------------------------------
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **kitchen+travis:** add new platforms [skip ci] (\ `6bd1309 <https://github.com/saltstack-formulas/jetbrains-resharper-formula/commit/6bd1309892f852e1a0a365c3b2b8ee244884ce27>`_\ )
+* **travis:** add notifications => zulip [skip ci] (\ `b534bdf <https://github.com/saltstack-formulas/jetbrains-resharper-formula/commit/b534bdfea9a02e455f677a43707b1f78fff644b5>`_\ )
+
+Documentation
+^^^^^^^^^^^^^
+
+
+* **readme:** update format (\ `a2c3697 <https://github.com/saltstack-formulas/jetbrains-resharper-formula/commit/a2c3697a968d7164c6cc960d721c4547006fe4e3>`_\ )
+
 `1.0.0 <https://github.com/saltstack-formulas/jetbrains-resharper-formula/compare/v0.1.0...v1.0.0>`_ (2020-05-19)
 ---------------------------------------------------------------------------------------------------------------------
 
