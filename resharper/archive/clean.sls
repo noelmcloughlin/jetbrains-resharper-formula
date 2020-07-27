@@ -8,5 +8,9 @@
 resharper-package-archive-clean-file-absent:
   file.absent:
     - names:
-      - {{ resharper.pkg.archive.path }}
-      - /usr/local/jetbrains/resharper-*
+      - {{ resharper.dir.tmp }}
+                  {%- if grains.os == 'MacOS' %}
+      - {{ resharper.dir.path }}/{{ resharper.pkg.name }}*{{ resharper.edition }}*.app
+                  {%- else %}
+      - {{ resharper.dir.path }}
+                  {%- endif %}

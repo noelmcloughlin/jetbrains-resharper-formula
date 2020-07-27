@@ -21,7 +21,13 @@ resharper-config-file-file-managed-environ_file:
     - makedirs: True
     - template: jinja
     - context:
-        path: {{ resharper.pkg.archive.path }}/bin
-        environ: {{ resharper.environ|json }}
+      environ: {{ resharper.environ|json }}
+                      {%- if resharper.pkg.use_upstream_macapp %}
+      edition:  {{ '' if not resharper.edition else ' %sE'|format(resharper.edition) }}.app/Contents/MacOS
+      appname: {{ resharper.dir.path }}/{{ resharper.pkg.name }}
+                      {%- else %}
+      edition: ''
+      appname: {{ resharper.dir.path }}/bin
+                      {%- endif %}
     - require:
       - sls: .archive
