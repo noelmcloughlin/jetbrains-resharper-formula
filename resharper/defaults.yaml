@@ -22,12 +22,12 @@ resharper:
       - tar
       - gzip
     suffix: exe
-    archive:
-      path: null
-      uri: 'https://data.services.jetbrains.com/products/releases?latest=true&code='
-      source_hash: null
+    uri: 'https://data.services.jetbrains.com/products/releases?latest=true&code='
+    macapp: {}
+    archive: {}
 
   dir:
+    path: null
     archive: C:\\Program files\\Jetbrains\\
     tmp: C:\\temp\\jetbrainstmp\\
     homes: C:\\Users

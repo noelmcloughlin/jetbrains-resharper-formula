@@ -11,7 +11,7 @@ resharper-package-archive-install:
     - require_in:
       - file: resharper-package-archive-install
   file.directory:
-    - name: {{ resharper.pkg.archive.path }}
+    - name: {{ resharper.dir.path }}
     - user: {{ resharper.identity.rootuser }}
     - group: {{ resharper.identity.rootgroup }}
     - mode: 755

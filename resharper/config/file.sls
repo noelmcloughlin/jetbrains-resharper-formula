@@ -23,8 +23,7 @@ resharper-config-file-managed-config_file:
     - makedirs: True
     - template: jinja
     - context:
-        path: {{ resharper.pkg.archive.path }}
-        config: {{ resharper.config|json }}
+      config: {{ resharper.config|json }}
     - require:
       - sls: .archive
 
