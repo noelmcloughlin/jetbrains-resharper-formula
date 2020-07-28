@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.0.2](https://github.com/saltstack-formulas/jetbrains-resharper-formula/compare/v1.0.1...v1.0.2) (2020-07-28)
+
+
+### Bug Fixes
+
+* **cmd.run:** wrap url in quotes (zsh) ([76d5ef9](https://github.com/saltstack-formulas/jetbrains-resharper-formula/commit/76d5ef913bf6ae32406008d95efc6f34154836fd))
+
+
+### Code Refactoring
+
+* **jetbrains:** align all jetbrains formulas ([c5e718c](https://github.com/saltstack-formulas/jetbrains-resharper-formula/commit/c5e718c197aa0d3aefff72a8853024a9a33ec8ef))
+
+
+### Continuous Integration
+
+* **kitchen:** use `saltimages` Docker Hub where available [skip ci] ([1ddc58f](https://github.com/saltstack-formulas/jetbrains-resharper-formula/commit/1ddc58f142742a3464982b1bc4f776b28dcffdf1))
+
+
+### Styles
+
+* **libtofs.jinja:** use Black-inspired Jinja formatting [skip ci] ([fcb8aeb](https://github.com/saltstack-formulas/jetbrains-resharper-formula/commit/fcb8aebefea5c66e24416153c1d54360a3b3ea0f))
+
 ## [1.0.1](https://github.com/saltstack-formulas/jetbrains-resharper-formula/compare/v1.0.0...v1.0.1) (2020-06-15)
 
 
