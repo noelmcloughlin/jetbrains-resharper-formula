@@ -4,7 +4,7 @@
 resharper:
   product: RS
   edition: ''
-  flavour: windows
+  flavour: windowsWeb
   release: latest
   version: latest
 
@@ -28,9 +28,9 @@ resharper:
 
   dir:
     path: null
-    archive: C:\\Program files\\Jetbrains\\
-    tmp: C:\\temp\\jetbrainstmp\\
-    homes: C:\\Users
+    archive: C:\Program files\Jetbrains
+    tmp: C:\temp\jetbrainstmp
+    homes: C:\Users
 
   identity:
     rootuser: root
