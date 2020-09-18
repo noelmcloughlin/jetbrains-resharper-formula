@@ -5,6 +5,8 @@
 {%- from tplroot ~ "/map.jinja" import resharper with context %}
 {%- from tplroot ~ "/libtofs.jinja" import files_switch with context %}
 
+    {%- if grains.os != 'Windows' %}
+
 include:
   - .archive
 
@@ -31,3 +33,5 @@ resharper-config-file-file-managed-environ_file:
                       {%- endif %}
     - require:
       - sls: .archive
+
+    {%- endif %}
