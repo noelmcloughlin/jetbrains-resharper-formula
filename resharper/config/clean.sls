@@ -2,10 +2,11 @@
 # vim: ft=sls
 
 {%- set tplroot = tpldir.split('/')[0] %}
+{%- set sls_package_clean = tplroot ~ '.archive.clean' %}
 {%- from tplroot ~ "/map.jinja" import resharper with context %}
 
 include:
-  - .archive.clean
+  - {{ sls_package_clean }}
 
 resharper-config-clean-file-absent:
   file.absent:
@@ -17,5 +18,10 @@ resharper-config-clean-file-absent:
                {%- if resharper.environ_file %}
       - {{ resharper.environ_file }}
                {%- endif %}
+               {%- if grains.kernel|lower == 'linux' %}
+      - {{ resharper.shortcut.file }}
+               {%- elif grains.os == 'MacOS' %}
+      - {{ resharper.dir.homes }}/{{ resharper.identity.user }}/Desktop/{{ resharper.pkg.name }}*{{ resharper.edition }}*
+               {%- endif %}
     - require:
-      - sls: .archive.clean
+      - sls: {{ sls_package_clean }}
