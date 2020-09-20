@@ -16,7 +16,7 @@ resharper-package-archive-install:
     - require_in:
       - file: resharper-package-archive-install
 
-              {%- if resharper.flavour|lower == 'windowsWeb' %}
+              {%- if resharper.flavour|lower == 'windowsweb' %}
 
   file.managed:
     - name: {{ resharper.dir.tmp }}/resharper.exe
