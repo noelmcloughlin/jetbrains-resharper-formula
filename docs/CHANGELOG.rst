@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`1.1.0 <https://github.com/saltstack-formulas/jetbrains-resharper-formula/compare/v1.0.2...v1.1.0>`_ (2020-09-20)
+---------------------------------------------------------------------------------------------------------------------
+
+Features
+^^^^^^^^
+
+
+* **windows:** basic windows support (\ `5eec29d <https://github.com/saltstack-formulas/jetbrains-resharper-formula/commit/5eec29d9a7a7d5c0eccd82d1dbe9db28ad90b8d2>`_\ )
+
 `1.0.2 <https://github.com/saltstack-formulas/jetbrains-resharper-formula/compare/v1.0.1...v1.0.2>`_ (2020-07-28)
 ---------------------------------------------------------------------------------------------------------------------
 
