@@ -19,7 +19,6 @@ resharper:
     use_upstream_archive: true
     deps:
       - curl
-      - tar
       - gzip
     suffix: exe
     uri: 'https://data.services.jetbrains.com/products/releases?latest=true&code='
