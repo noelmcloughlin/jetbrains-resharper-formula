@@ -2,6 +2,21 @@
 Changelog
 =========
 
+`1.2.0 <https://github.com/saltstack-formulas/jetbrains-resharper-formula/compare/v1.1.0...v1.2.0>`_ (2020-09-20)
+---------------------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **defaults:** no choco tar package (\ `d1aa72a <https://github.com/saltstack-formulas/jetbrains-resharper-formula/commit/d1aa72adebb7feb57d6e10d2646a5e7b71645894>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **windows:** basic windows support (\ `561f344 <https://github.com/saltstack-formulas/jetbrains-resharper-formula/commit/561f344e97521030c01c4995fd813108e9da0f6e>`_\ )
+
 `1.1.0 <https://github.com/saltstack-formulas/jetbrains-resharper-formula/compare/v1.0.2...v1.1.0>`_ (2020-09-20)
 ---------------------------------------------------------------------------------------------------------------------
 
